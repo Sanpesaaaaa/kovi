@@ -21,6 +21,7 @@
       color: #fff;
       padding: 80px 20px;
       text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
     header h1 {
       font-size: 3rem;
@@ -35,6 +36,7 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      animation: fadeInUp 1s ease forwards;
     }
     section h2 {
       margin-bottom: 20px;
@@ -48,6 +50,10 @@
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #0056b3;
     }
     ul {
       list-style: disc;
@@ -65,6 +71,46 @@
       max-width: 280px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .video-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .video-container iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    form input, form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background-color: #0056b3;
     }
     footer {
       background: #222;
@@ -77,6 +123,14 @@
         font-size: 2rem;
       }
     }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
@@ -88,7 +142,7 @@
   <section>
     <h2>О нас</h2>
     <p>Мы предоставляем в аренду современные эндуро мотоциклы и квадроциклы для катания по лесу, пескам и бездорожью. У нас три локации проката и опытные инструктора, чтобы ваш отдых был максимально безопасным и захватывающим.</p>
-    <a href="#contact" class="btn">Забронировать прокат</a>
+    <a href="#booking" class="btn">Забронировать прокат</a>
   </section>
 
   <section>
@@ -117,7 +171,24 @@
       <img src="https://images.unsplash.com/photo-1600369672062-7f2c9c1c2632" alt="Эндуро мотоцикл">
       <img src="https://images.unsplash.com/photo-1558980664-10e7170ad1b4" alt="Квадроцикл на маршруте">
       <img src="https://images.unsplash.com/photo-1523966211575-eb4a29bba60d" alt="Групповая поездка по лесу">
+      <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e" alt="Мототуризм">
+      <img src="https://images.unsplash.com/photo-1623391422727-ff67c3ea7a02" alt="Квадроциклы в движении">
+      <img src="https://images.unsplash.com/photo-1583692874070-5ce846f9cf36" alt="Экстрим прокат">
     </div>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/tYVjS2F77gE" title="Мотопрогулка Rush Adrenaline" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Онлайн-бронирование</h2>
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Телефон" required>
+      <input type="date" name="date" required>
+      <textarea name="message" rows="4" placeholder="Комментарий"></textarea>
+      <button type="submit">Отправить заявку</button>
+    </form>
   </section>
 
   <section id="contact">
